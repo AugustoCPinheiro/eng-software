@@ -25,7 +25,17 @@
     "rules": {
         "no-console": 0, // Remember, this means error!,
         "prettier/prettier": "error",
-        "simple-import-sort/sort": "warn"
+        "simple-import-sort/sort": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+              "js": "never",
+              "jsx": "never",
+              "ts": "never",
+              "tsx": "never"
+            }
+         ]
     },
     "overrides": [
         {

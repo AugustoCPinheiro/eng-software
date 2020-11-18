@@ -5,3 +5,5 @@ interface Store {
   buldingNumber: string;
   neighborhood: string;
 }
+
+export default Store;
