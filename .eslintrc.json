@@ -13,12 +13,24 @@
     },
     "plugins": [
         "prettier",
-        "@typescript-eslint",
-        "simple-import-sort"
+        "@typescript-eslint"
     ],
+    "settings": {
+        "import/resolver":{
+            "node":{
+                "extensions":[".js", ".ts"]
+            }
+        }
+    },
     "rules": {
         "no-console": 0, // Remember, this means error!,
         "prettier/prettier": "error",
         "simple-import-sort/sort": "warn"
-    }
+    },
+    "overrides": [
+        {
+        "files": ["*.spec.ts"],
+            "rules": {"no-undef": "off"}
+        }
+    ]
 }
