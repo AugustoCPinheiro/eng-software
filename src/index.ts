@@ -1,11 +1,10 @@
 import express, { json } from "express";
+import cors from 'cors';
 
 const app = express();
-app.use(json());
 
-app.get("/", (request, response) => {
-  return response.json({ message: "Hello, TypeScript!" });
-});
+app.use(cors());
+app.use(json());
 
 app.listen(3000, () => {
   console.log(" Server started on http://localhost:3000");
