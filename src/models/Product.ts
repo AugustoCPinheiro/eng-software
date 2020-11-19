@@ -1,6 +1,7 @@
 import ProductMeasure from './ProductMeasure';
 import sequelize from '../config/sequelize';
 import {Model, DataTypes} from "sequelize";
+import Store from './Store';
 
 class Product extends Model {
   public id!: number;
@@ -37,5 +38,8 @@ Product.init({
   tableName: "products",
   sequelize
 });
+
+
+
 
 export default Product;
