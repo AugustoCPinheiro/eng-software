@@ -1,13 +1,15 @@
 import Product from '../models/Product';
-import ProductMeasure from '../models/ProductMeasure';
 
-const createProduct = (): Product => ({
-  createdAt: new Date(),
-  description: '',
-  id: 1,
-  measure: ProductMeasure.KG,
-  measuredValue: 2,
-  name: '',
-});
+const createProduct = async (): Promise<Product> => {
+  const newProduct: Product = await Product.create({});
+  return newProduct;
+};
 
-export default { createProduct };
+const deleteProduct = async (id: number): Promise<void> => {
+  const product = await Product.findByPk(id);
+  product.destroy();
+};
+
+const listProduct = async (): Promise<Product[]> => Product.findAll();
+
+export default { createProduct, deleteProduct, listProduct };
