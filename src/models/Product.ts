@@ -25,15 +25,18 @@ Product.init(
     },
     name: {
       type: new DataTypes.STRING(128),
+      allowNull: false,
     },
     description: {
       type: new DataTypes.STRING(255),
     },
     measure: {
       type: new DataTypes.STRING(8),
+      allowNull: false,
     },
     measuredValue: {
       type: new DataTypes.INTEGER(),
+      allowNull: false,
     },
     createdAt: {
       type: new DataTypes.DATE(),

@@ -1,7 +1,7 @@
 import Product from '../models/Product';
 
-const createProduct = async (): Promise<Product> => {
-  const newProduct: Product = await Product.create({});
+const createProduct = async (product: Product): Promise<Product> => {
+  const newProduct: Product = await Product.create(product);
   return newProduct;
 };
 
@@ -12,4 +12,11 @@ const deleteProduct = async (id: number): Promise<void> => {
 
 const listProduct = async (): Promise<Product[]> => Product.findAll();
 
-export default { createProduct, deleteProduct, listProduct };
+const getProduct = async (id: number): Promise<Product> => Product.findByPk(id);
+
+export default {
+  createProduct,
+  deleteProduct,
+  listProduct,
+  getProduct,
+};
