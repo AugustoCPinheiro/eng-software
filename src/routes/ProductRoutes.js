@@ -13,10 +13,10 @@ router.post(productRoute, async (req, res) => {
   }
 });
 
-router.delete(`${productRoute}/id`, async (req, res) => {
+router.delete(`${productRoute}/:id`, async (req, res) => {
   const { id } = req.params;
   await ProductController.deleteProduct(parseInt(id, 10));
-  res.send();
+  res.status(204).send();
 });
 
 router.get(productRoute, async (_, res) => {

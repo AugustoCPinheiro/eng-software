@@ -6,14 +6,12 @@
     "extends": [
         "airbnb-base"
     ],
-    "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": 12,
         "sourceType": "module"
     },
     "plugins": [
-        "prettier",
-        "@typescript-eslint"
+        "prettier"
     ],
     "settings": {
         "import/resolver":{
@@ -23,7 +21,7 @@
         }
     },
     "rules": {
-        "no-console": 0, // Remember, this means error!,
+        "no-console": 0,
         "prettier/prettier": "error",
         "simple-import-sort/sort": "off",
         "import/extensions": [
@@ -39,7 +37,7 @@
     },
     "overrides": [
         {
-        "files": ["*.spec.ts"],
+            "files": ["*.spec.ts"],
             "rules": {"no-undef": "off"}
         }
     ]
