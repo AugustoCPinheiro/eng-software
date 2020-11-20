@@ -5,10 +5,10 @@ const router = Router();
 const storeRoute = '/store';
 
 router.post(storeRoute, async (req, res) => {
-  res.send(await StoreController.createStore());
+  res.send(await StoreController.createStore(req.body));
 });
 
-router.get(storeRoute, (_, res) => {
+router.get(storeRoute, async (_, res) => {
   res.send(await StoreController.listStores());
 });
 
