@@ -1,17 +1,17 @@
-import { Model, DataTypes } from 'sequelize';
-import sequelize from '../config/sequelize';
-import Product from './Product';
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/sequelize');
+const Product = require('./Product');
 
 class Store extends Model {
-  public id!: number;
+  id;
 
-  public name!: string;
+  name;
 
-  public street!: string;
+  street;
 
-  public buildingNumber!: string;
+  buildingNumber;
 
-  public neighborhood!: string;
+  neighborhood;
 }
 
 Store.init(
@@ -47,4 +47,4 @@ const StoreProduct = sequelize.define('StoreProduct', {
 Store.belongsToMany(Product, { through: StoreProduct });
 Product.belongsToMany(Store, { through: StoreProduct });
 
-export default Store;
+module.exports = Store;

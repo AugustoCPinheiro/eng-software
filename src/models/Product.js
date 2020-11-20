@@ -1,19 +1,18 @@
-import { Model, DataTypes } from 'sequelize';
-import ProductMeasure from './ProductMeasure';
-import sequelize from '../config/sequelize';
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/sequelize');
 
 class Product extends Model {
-  public id!: number;
+  id;
 
-  public name!: string;
+  name;
 
-  public description!: string;
+  description;
 
-  public measure!: ProductMeasure;
+  measure;
 
-  public measuredValue!: number;
+  measuredValue;
 
-  public createdAt!: Date;
+  createdAt;
 }
 
 Product.init(
@@ -47,5 +46,4 @@ Product.init(
     sequelize,
   },
 );
-
-export default Product;
+module.exports = Product;
