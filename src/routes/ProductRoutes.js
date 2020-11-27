@@ -7,12 +7,15 @@ const productRoute = '/product';
 
 router.post(productRoute, async (req, res) => {
   try {
-    res.send(await ProductController.createProduct(req.body));
+    if (req.body.store) {
+      res.send(await ProductController.createProduct(req.body));
+    } else {
+      res.send(await ProductController.createProductToStore(req.body));
+    }
   } catch (e) {
     res.status(500).send(e);
   }
 });
-
 router.delete(`${productRoute}/:id`, async (req, res) => {
   const { id } = req.params;
   await ProductController.deleteProduct(parseInt(id, 10));

@@ -12,7 +12,13 @@ const deleteProduct = async (id) => {
   const product = await Product.findByPk(id);
   product.destroy();
 };
-
+const createProductToStore = async (productWithStore) => {
+  const product = await Product.create(
+    { ...productWithStore },
+    { include: [Store] },
+  );
+  return product;
+};
 const listProduct = async () => Product.findAll();
 
 const getProduct = async (id) => Product.findByPk(id);
@@ -33,4 +39,5 @@ module.exports = {
   listProduct,
   getProduct,
   getProductBestPrices,
+  createProductToStore,
 };
