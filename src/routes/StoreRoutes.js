@@ -15,12 +15,15 @@ router.get(storeRoute, async (_, res) => {
 
 router.post(`${storeRoute}/:id/product`, async (req, res) => {
   const { id } = req.params;
-  console.log(req.body, id);
-  const newStoreProduct = await StoreProductController.createStoreProduct({
-    ...req.body,
-    StoreId: id,
-  });
+  try {
+    const newStoreProduct = await StoreProductController.createStoreProduct({
+      ...req.body,
+      StoreId: id,
+    });
 
-  res.send(newStoreProduct);
+    res.send(newStoreProduct);
+  } catch (e) {
+    res.status(500).send(e);
+  }
 });
 module.exports = { router };

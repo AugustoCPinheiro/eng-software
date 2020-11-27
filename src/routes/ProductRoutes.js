@@ -28,4 +28,9 @@ router.get(`${productRoute}/:id`, async (req, res) => {
   res.send(await ProductController.getProduct(parseInt(id, 10)));
 });
 
+router.get(`${productRoute}/:id/price`, async (req, res) => {
+  const { id } = req.params;
+  res.send(await ProductController.getProductBestPrices(parseInt(id, 10)));
+});
+
 module.exports = { router };
